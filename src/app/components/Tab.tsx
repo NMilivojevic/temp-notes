@@ -1,4 +1,4 @@
-import { ChangeEvent, FC } from "react";
+import { ChangeEvent, FC, useEffect, useRef } from "react";
 
 interface TabProps {
     isActive: boolean;
@@ -23,9 +23,18 @@ const Tab: FC<TabProps> = ({
         onTextChange(e.target.value);
     };
 
+    const textareaRef = useRef<HTMLTextAreaElement>(null);
+
+    useEffect(() => {
+        if (textareaRef.current) {
+            textareaRef.current.focus();
+        }
+    }, []);
+
     return (
         <div className="relative h-screen">
             <textarea
+                ref={textareaRef}
                 value={text}
                 onChange={handleTextChange}
                 className={`border-2 border-indigo-300 p-2 rounded w-full h-full focus:outline-none ${

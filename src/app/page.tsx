@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import Tab from "./components/Tab";
 import TabButton from "./components/TabButton";
 import DarkMode from "./components/icons/DarkMode";
@@ -29,7 +29,7 @@ const getInitialDarkModeState = () => {
     }
 };
 
-const Home: React.FC = () => {
+const Home: FC = () => {
     const [darkMode, setDarkMode] = useState(getInitialDarkModeState);
     const [tabs, setTabs] = useState(getInitialTabsState);
     const [activeTab, setActiveTab] = useState<number>(0);
