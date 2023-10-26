@@ -94,8 +94,8 @@ const Home: React.FC = () => {
     return (
         <div className={darkMode ? "bg-neutral-900" : "bg-white"}>
             <div className="max-w-screen-xl mx-auto p-5">
-                <div className="flex flex-row justify-between items-center mb-5 ">
-                    <div className="flex gap-1 flex-wrap">
+                <div className="flex flex-col md:flex-row gap-2 justify-between items-start mb-5 ">
+                    <div className="flex gap-1 flex-wrap flex-1">
                         {tabs?.map((tab: Tab, index: number) => (
                             <TabButton
                                 key={tab.id}
@@ -118,7 +118,7 @@ const Home: React.FC = () => {
                             + New Tab
                         </button>
                     </div>
-                    <div className="flex justify-end items-end gap-2">
+                    <div className="flex justify-end items-end gap-2 w-30p">
                         {canDelete ? (
                             <button
                                 className={`cursor-pointer hover:underline ${

@@ -1,4 +1,4 @@
-import React from "react";
+import { FC } from "react";
 
 interface TabButtonProps {
     index: number;
@@ -8,7 +8,7 @@ interface TabButtonProps {
     tabId: number;
 }
 
-const TabButton: React.FC<TabButtonProps> = ({
+const TabButton: FC<TabButtonProps> = ({
     index,
     isActive,
     onTabClick,
@@ -24,7 +24,7 @@ const TabButton: React.FC<TabButtonProps> = ({
             } px-2 py-1 rounded`}
             onClick={() => onTabClick(index)}
         >
-            {tabId + 1}/ {text ? `${text.slice(0, 5)}` : ""}
+            {tabId + 1} {text ? `• ${text.slice(0, 5)}` : ""}
         </button>
     );
 };
