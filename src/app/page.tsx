@@ -12,17 +12,21 @@ type Tab = {
 };
 
 const getInitialTabsState = () => {
-    const savedTabs = localStorage.getItem("tabs");
-    if (savedTabs) {
-        return JSON.parse(savedTabs);
-    } else {
-        return [{ id: 0, text: "" }];
+    if (typeof window !== "undefined") {
+        const savedTabs = localStorage.getItem("tabs");
+        if (savedTabs) {
+            return JSON.parse(savedTabs);
+        } else {
+            return [{ id: 0, text: "" }];
+        }
     }
 };
 
 const getInitialDarkModeState = () => {
-    const savedDarkMode = localStorage.getItem("darkMode");
-    return savedDarkMode ? savedDarkMode === "true" : false;
+    if (typeof window !== "undefined") {
+        const savedDarkMode = localStorage.getItem("darkMode");
+        return savedDarkMode ? savedDarkMode === "true" : false;
+    }
 };
 
 const Home: React.FC = () => {
@@ -92,7 +96,7 @@ const Home: React.FC = () => {
             <div className="max-w-screen-xl mx-auto p-5">
                 <div className="flex flex-row justify-between items-center mb-5 ">
                     <div className="flex gap-1 flex-wrap">
-                        {tabs.map((tab: Tab, index: number) => (
+                        {tabs?.map((tab: Tab, index: number) => (
                             <TabButton
                                 key={tab.id}
                                 index={index}
@@ -138,7 +142,7 @@ const Home: React.FC = () => {
                         </button>
                     </div>
                 </div>
-                {tabs.map((tab: Tab, index: number) => {
+                {tabs?.map((tab: Tab, index: number) => {
                     if (tab.id === activeTab)
                         return (
                             <Tab

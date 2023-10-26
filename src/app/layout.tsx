@@ -6,8 +6,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
     title: "Temp Notes",
-    description:
-        "Simple web app for managing temporary notes within multiple tabs.",
+    description: "Web app for managing temporary notes within multiple tabs.",
 };
 
 export default function RootLayout({

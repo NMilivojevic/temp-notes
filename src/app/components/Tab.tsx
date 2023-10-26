@@ -8,7 +8,7 @@ interface TabProps {
     text: string;
     onTextChange: (newText: string) => void;
     canDelete: boolean;
-    darkMode: boolean;
+    darkMode: boolean | undefined;
 }
 
 const Tab: FC<TabProps> = ({
